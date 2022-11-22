@@ -8,7 +8,7 @@ let playerSelection = prompt("Please enter a value between rock, paper or scisso
 //Check whether the user's input is only one of the allowed values, otherwise print error
 if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'){
 
-  //Make a computer pick 
+  //Make a computer choice 
   function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     let randomIndex = Math.floor(Math.random() * choices.length); 
@@ -16,35 +16,44 @@ if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection
     return choices[randomIndex];
   }
 
-  let computerChoice = getComputerChoice();
+  //Assing the computer choice to the variable
+  let computerSelection = getComputerChoice();
 
-  console.log(`${playerSelection} ${computerChoice}`);
-  if (playerSelection === computerChoice){
-    console.log(`Tie`);
+  //Print information to the console about user and PC selection
+  console.log(`${playerSelection} ${computerSelection}`);
+  
+  //Play a round of the game
+  function playRound(playerSelection, computerSelection){
+
+      //Take the two values and compare them
+  if (playerSelection === computerSelection){
+    return `Tie`;
   }
 
-  else if (playerSelection === 'rock' && computerChoice === 'paper'){
-    console.log(`Lose`);
+  else if (playerSelection === 'rock' && computerSelection === 'paper'){
+    return `Lose`;
   }
 
-  else if (playerSelection === 'rock' && computerChoice === 'scissors'){
-    console.log(`Win`);
+  else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+    return `Win`;
   }
 
-  else if (playerSelection === 'paper' && computerChoice === 'rock'){
-    console.log(`Win`);
+  else if (playerSelection === 'paper' && computerSelection === 'rock'){
+    return `Win`;
   }
 
-  else if (playerSelection === 'paper' && computerChoice === 'scissors'){
-    console.log(`Lose`);
+  else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+    return `Lose`;
   }
 
-  else if (playerSelection === 'scissors' && computerChoice === 'paper'){
-    console.log(`Win`);
+  else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+    return `Win`;
   }
 
-  else if (playerSelection === 'scissors' && computerChoice === 'rock'){
-    console.log(`Lose`);
+  else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+    return `Lose`;
+  }
+
   }
   
 }
