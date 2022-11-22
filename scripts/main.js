@@ -19,13 +19,10 @@ if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection
   //Assing the computer choice to the variable
   let computerSelection = getComputerChoice();
 
-  //Print information to the console about user and PC selection
-  console.log(`${playerSelection} ${computerSelection}`);
-  
   //Play a round of the game
   function playRound(playerSelection, computerSelection){
 
-      //Take the two values and compare them
+  //Take the two values and compare them
   if (playerSelection === computerSelection){
     return `Tie`;
   }
@@ -60,3 +57,15 @@ if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection
 else {
   console.error(`The value you've entered is not allowed`);
 }
+
+//play a 5 round game
+function game(){
+  let roundResult;
+  for(let i = 1; i <= 5; i++){
+    computerSelection = getComputerChoice();
+    console.log(`Player: ${playerSelection} PC: ${computerSelection}`);
+    roundResult = playRound(playerSelection, computerSelection);
+    console.log(roundResult);
+  }
+}
+game();
