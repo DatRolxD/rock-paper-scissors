@@ -1,71 +1,48 @@
-// function that randomly returns rock, paper or scissors
-// create an array of options
-// generate a random number
-// pick an option out of the array = the word at random index
+//add event listener to all buttons
+//on click => save the id to a value
+let btns = document.querySelectorAll('#opt-container>button');
+btns = [...btns];
+let userInput = '';
 
-//Ask user for an input - choose either a paper, a rock or a scissors
-let playerSelection = prompt("Please enter a value between rock, paper or scissors").toLowerCase();
-//Check whether the user's input is only one of the allowed values, otherwise print error
-if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'){
+const listOfChoices = ['rock', 'paper', 'scissors'];
+let computerChoice = '';
 
-  //Make a computer choice 
-  function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
-    let randomIndex = Math.floor(Math.random() * choices.length); 
-    
-    return choices[randomIndex];
-  }
+const displayResult = document.querySelector('#display-result');
+const paraComputerChoice = document.createElement('p');
+const paraResult = document.createElement('p');
 
-  //Assing the computer choice to the variable
-  let computerSelection = getComputerChoice();
+displayResult.appendChild(paraComputerChoice);
+displayResult.appendChild(paraResult);
 
-  //Play a round of the game
-  function playRound(playerSelection, computerSelection){
+for (let i = 0; i < btns.length; i++){
+  btns[i].addEventListener('click', function(){
+    userInput = btns[i].getAttribute('id');
+    computerChoice = listOfChoices[Math.floor(Math.random() * listOfChoices.length)];
+    console.log(userInput, computerChoice);
 
-  //Take the two values and compare them
-  if (playerSelection === computerSelection){
-    return `Tie`;
-  }
+    let result = '';
+    if (userInput === computerChoice){
+      result = 'A tie';
+      console.log('A tie');
+    }
 
-  else if (playerSelection === 'rock' && computerSelection === 'paper'){
-    return `Lose`;
-  }
-
-  else if (playerSelection === 'rock' && computerSelection === 'scissors'){
-    return `Win`;
-  }
-
-  else if (playerSelection === 'paper' && computerSelection === 'rock'){
-    return `Win`;
-  }
-
-  else if (playerSelection === 'paper' && computerSelection === 'scissors'){
-    return `Lose`;
-  }
-
-  else if (playerSelection === 'scissors' && computerSelection === 'paper'){
-    return `Win`;
-  }
-
-  else if (playerSelection === 'scissors' && computerSelection === 'rock'){
-    return `Lose`;
-  }
-
-  }
-  
-}
-else {
-  console.error(`The value you've entered is not allowed`);
+    else if (userInput === 'rock' && computerChoice === 'paper' ||
+            userInput === 'paper' && computerChoice === 'scissors' ||
+            userInput === 'scissors' && computerChoice === 'rock'
+    ){
+      result = `You've lost`;
+      console.log(`You've lost`);
+    }
+    else{
+      result = `You've won`;
+      console.log(`You've won`);
+    }
+    paraComputerChoice.textContent = computerChoice;
+    paraResult.textContent = result;
+  })
 }
 
-//play a 5 round game
-function game(){
-  let roundResult;
-  for(let i = 1; i <= 5; i++){
-    computerSelection = getComputerChoice();
-    console.log(`Player: ${playerSelection} PC: ${computerSelection}`);
-    roundResult = playRound(playerSelection, computerSelection);
-    console.log(roundResult);
-  }
-}
-game();
+
+
+
+
