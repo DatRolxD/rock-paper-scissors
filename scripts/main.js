@@ -9,7 +9,9 @@ let computerChoice = '';
 
 const displayResult = document.querySelector('#display-result');
 const paraComputerChoice = document.createElement('p');
+paraComputerChoice.classList.add('computer-choice');
 const paraResult = document.createElement('p');
+paraResult.classList.add('result');
 
 displayResult.appendChild(paraComputerChoice);
 displayResult.appendChild(paraResult);
