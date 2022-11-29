@@ -13,6 +13,12 @@ paraComputerChoice.classList.add('computer-choice');
 const paraResult = document.createElement('p');
 paraResult.classList.add('result');
 
+const userLivesDiv = document.querySelector('#user-lives');
+const computerLivesDiv = document.querySelector('#computer-lives');
+const death = document.querySelector('#death');
+let userLives = 5; 
+let computerLives = 5; 
+
 displayResult.appendChild(paraComputerChoice);
 displayResult.appendChild(paraResult);
 
@@ -39,8 +45,26 @@ for (let i = 0; i < btns.length; i++){
       result = `You've won`;
       console.log(`You've won`);
     }
-    paraComputerChoice.textContent = computerChoice;
+    paraComputerChoice.textContent = `User: ${userInput} PC: ${computerChoice}`;
     paraResult.textContent = result;
+
+    if (userLives > 0 && computerLives > 0){
+      if (result === `You've won`){
+        computerLives--;
+        computerLivesDiv.textContent = `Your lives: ${computerLives}`;
+      }
+      else if (result === `You've lost`) {
+        userLives--;
+        userLivesDiv.textContent = `Your lives: ${userLives}`;
+      }
+    }
+    else if (userLives = 0){
+      death.textContent = `You died`;
+    }
+
+    else {
+      death.textContent = `PC died`;
+    }
   })
 }
 

@@ -102,6 +102,12 @@ select {
   max-height: 100%;
 }
 
+.user-choice{
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
 .computer-choice{
   font-size: 2rem;
   text-align: center;
@@ -114,4 +120,17 @@ select {
   color: whitesmoke;
 }
 
+#lives-container{
+  font-size: 3rem;
+  color: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#death{
+  text-align: center;
+  font-size: 5rem;
+  color: red;
+}
 
