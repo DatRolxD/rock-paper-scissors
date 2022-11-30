@@ -45,20 +45,20 @@ for (let i = 0; i < btns.length; i++){
       result = `You've won`;
       console.log(`You've won`);
     }
-    paraComputerChoice.textContent = `User: ${userInput} PC: ${computerChoice}`;
-    paraResult.textContent = result;
 
     if (userLives > 0 && computerLives > 0){
+      paraComputerChoice.textContent = `User: ${userInput} PC: ${computerChoice}`;
+      paraResult.textContent = result;
       if (result === `You've won`){
         computerLives--;
-        computerLivesDiv.textContent = `Your lives: ${computerLives}`;
+        computerLivesDiv.textContent = `PC lives: ${computerLives}`;
       }
       else if (result === `You've lost`) {
         userLives--;
         userLivesDiv.textContent = `Your lives: ${userLives}`;
       }
     }
-    else if (userLives = 0){
+    else if (userLives === 0){
       death.textContent = `You died`;
     }
 
@@ -67,7 +67,6 @@ for (let i = 0; i < btns.length; i++){
     }
   })
 }
-
 
 
 
